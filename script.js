@@ -20,3 +20,28 @@ function getComputerChoice() {
     }
 }
 
+
+//initialize human choice function
+//initialize variable for user choice
+// use prompt to ask user for their choice, store answer in variable
+//use ifs to account for spelling, return user's choice
+
+function getHumanChoice() {
+    let humanChoice = prompt("What do you want to throw (rock, paper, or scissors): ");
+    if (humanChoice === 'rock' || humanChoice === "Rock") {
+        return 'rock';
+    }
+    else if (humanChoice === 'paper' || humanChoice === "Paper") {
+        return 'paper';
+    }
+    else if (humanChoice === 'scissors' || humanChoice === 'Scissors') {
+        return 'scissors';
+    }
+    else {
+        return 'Invalid choice';
+    }
+
+}
+
+
+
