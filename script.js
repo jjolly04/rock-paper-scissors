@@ -89,10 +89,43 @@ function playRound(humanChoice, computerChoice) {
    
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+
+
+
+
+// create function to play 5 rounds
+// update scores
+// declare winner at end
+
+function playGame() {
+    let gamesPlayed = 0;
+    console.log("Your Score: " + humanScore);
+    console.log("Computer's Score: " + computerScore);
+
+    while (gamesPlayed < 5) {
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+    console.log("Your Score: " + humanScore);
+    console.log("Computer's Score: " + computerScore);
+    gamesPlayed++;
+    }
+
+    if (humanScore < computerScore) {
+        console.log("The Computer Won! Better luck next time!");
+    }
+    else if (humanScore > computerScore) {
+        console.log("You Won! Congratulations!");
+    }
+    else {
+        console.log("You Both Tied!");
+    }
+}
+
+playGame();
 
 
 
