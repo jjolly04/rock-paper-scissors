@@ -8,14 +8,30 @@ body {
 }
 
 .buttons {
-    margin: 50px;
-    position:initial;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vb;
 }
 
 .content {
+    margin-top: 30px;
     min-height: 200px;
     min-width: 60px;
 }
 button {
-    padding: 25px;
+    padding: 40px 55px;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+#rock {
+    background-color: lightcoral;
+}
+
+#paper {
+    background-color: lightblue;
+}
+
+#scissors {
+    background-color: lightseagreen;
 }
