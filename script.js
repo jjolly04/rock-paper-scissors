@@ -45,9 +45,15 @@ let computerScore = 0;
 //increment score after each round
 
 function playRound(humanChoice, computerChoice) {
-  //   while (humanChoice === "Invalid choice") {
-  //     humanChoice = getHumanChoice();
-  //   }
+
+  if (humanScore === 5 || computerScore === 5) {
+    humanScore = 0;
+    computerScore = 0; 
+
+    const final_Result = document.querySelector('.finalResultText');
+    final_Result.remove();
+
+  }
 
   const result = document.getElementById("result");
   const playerScore = document.getElementById("player-score");
@@ -80,33 +86,26 @@ function playRound(humanChoice, computerChoice) {
   result.textContent = text;
   playerScore.textContent = 'Your Score: ' + humanScore;
   computersScore.textContent = 'Computer Score: ' + computerScore;
-}
 
-// create function to play 5 rounds
-// update scores
-// declare winner at end
 
-function playGame() {
-  let gamesPlayed = 0;
-  console.log("Your Score: " + humanScore);
-  console.log("Computer's Score: " + computerScore);
+  //display's game's final winner
 
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
+  const finalResult = document.createElement('div');
+  finalResult.classList.add('finalResultText');
 
-  console.log("Your Score: " + humanScore);
-  console.log("Computer's Score: " + computerScore);
-  gamesPlayed++;
+  const content = document.querySelector('.content');
 
-  if (humanScore < computerScore) {
-    console.log("The Computer Won! Better luck next time!");
-  } else if (humanScore > computerScore) {
-    console.log("You Won! Congratulations!");
-  } else {
-    console.log("You Both Tied!");
+  if (humanScore === 5) {
+    finalResult.textContent = "Congrats! You got 5 points and won!";
+    content.appendChild(finalResult);
   }
+  else if (computerScore === 5) {
+    finalResult.textContent = "Too bad! The computer got to 5 first and won!";
+    content.appendChild(finalResult);
+  }
+  
 }
+
 
 //execute playRound on button press
 const buttons = document.querySelectorAll("button");
@@ -116,6 +115,8 @@ buttons.forEach((button) => {
     playRound(button.getAttribute("id"), getComputerChoice());
   });
 });
+
+
 
 //add text content to result div
 //add it to the tree as child of body
